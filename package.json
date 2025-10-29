@@ -1,0 +1,19 @@
+{
+  "name": "apelang.c",
+  "version": "0.15.0",
+  "description": "Ape Programming Language; Krzysztof Gabis (2020).",
+  "keywords": ["c", "library", "ape", "programming", "language"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodef/apelang.c.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nodef/apelang.c/issues"
+  },
+  "homepage": "https://github.com/nodef/apelang.c#readme",
+  "files": [
+    "ape.c",
+    "ape.h"
+  ]
+}

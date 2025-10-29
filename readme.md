@@ -3,7 +3,7 @@
 ## Try Ape in your browser on [Ape Playground](https://kgabis.github.io/apeplay/).
 
 ## About
-Ape is an easy to use programming language and library written in C. It's an offspring of [Monkey](https://monkeylang.org) language (from [Writing An Interpreter In Go](https://interpreterbook.com) and [Writing A Compiler In Go](https://compilerbook.com) books by [Thorsten Ball](https://thorstenball.com)), but it evolved to be more procedural with variables, loops, operator overloading, modules, and more.
+Ape is an easy to use programming language and library written in C, by [Krzysztof Gabis](https://github.com/kgabis). It's an offspring of [Monkey](https://monkeylang.org) language (from [Writing An Interpreter In Go](https://interpreterbook.com) and [Writing A Compiler In Go](https://compilerbook.com) books by [Thorsten Ball](https://thorstenball.com)), but it evolved to be more procedural with variables, loops, operator overloading, modules, and more.
 
 ## Current state
 It's under development so everything in the language and the api might change.
@@ -26,8 +26,29 @@ if (contains_item(city, cities)) {
 }
 ```
 
+## Installation
+Run:
+```bash
+$ npm i apelang.c
+```
+
+And then include `ape.h` as follows:
+```c
+#include "node_modules/apelang.c/ape.h"
+```
+
+You may also want to include `ape.c` as follows:
+```c
+#ifndef __APELANG_C__
+#define __APELANG_C__
+#include "node_modules/apelang.c/ape.c"
+#endif
+```
+
+This will include both the function declaration and their definitions into a single file.
+
 ## Embedding
-Add ape.h and ape.c to your project and compile ape.c with a C compiler before linking.
+Add `ape.h` and `ape.c` to your project and compile `ape.c` with a C compiler before linking.
 
 ```c
 #include "ape.h"
@@ -50,7 +71,7 @@ Ape is a dynamically typed language with mark and sweep garbage collection. It's
 ```bool```, ```string```, ```number``` (double precision float), ```array```, ```map```, ```function```, ```error```
 
 ### Operators
-```
+```javascript
 Math:
 + - * / %
 
@@ -203,13 +224,13 @@ fn vec2(x, y) {
 
 ape.c can be split into separate files by running utils/split.py:
 
-```
+```bash
 python3 utils/split.py --input ape.c --output-path ape
 ```
 
 It can be joined back into a single file with utils/join.py:
 
-```
+```bash
 python3 utils/join.py --template utils/ape.c.templ --path ape --output ape.c
 ```
 
